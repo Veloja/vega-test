@@ -1,4 +1,6 @@
-/* global reset*/
+/* Responsive design works up to 320px; no less */
+
+/* seting some color var */
 :root {
     --background: #ffffff;
     --background-secondary: #f9f9f9;
@@ -9,6 +11,7 @@
     --box-shadow-medium: 0 1rem 1.5rem var(--text-color, .2);
     --box-shadow-big: 0 1.5rem 4rem var(--text-color, .2);
 }
+/* global reset*/
 * {
     margin: 0;
     padding: 0;
@@ -34,7 +37,7 @@ body {
 }
 .header {
     height: 85vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)) , url('/images/bg.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)) , url('/images/bg-small.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -45,6 +48,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+/* when resolution is higher then 192dpi and the width is larger then 600px */
+@media (min-resolution: 192dpi) and (min-width: 600px) {
+    .header {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)) , url('/images/bg.jpeg');
+    }
 }
 /* ///////////////////////////////////
 /////////   COLLAPSIBLE NAV   ///////  */
@@ -243,7 +252,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* because of the small white space after, img is treated as inline el*/
+    display: block; 
 }
 .product__img:hover {
     box-shadow: var(--box-shadow-big);
@@ -652,9 +661,6 @@ body {
     .image-slider__container {
         height: 40vw;
     }
-    /* .non-active {
-        display: none;
-    } */
     .slide {
         height: 90%;
         width: 38%;
@@ -698,6 +704,9 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .form__input {
+        width: 100%;
     }
 }
 /* //////////// FOOTER ////////// */

@@ -1,24 +1,18 @@
 $(document).ready(function () {
 
-    // $('.navbar-nav__link').click(function(){
+    // when click on navbar link => dropmenu
     $('.navbar-nav__link').click(function(){
         $('.navigation').css({display: 'block'});
     });
-
+    // close drop menu
     $('.exit').click(function(){
         $('.navigation').css({display: 'none'});
     });
-
+    // toggle menu btn on mobile device
     $('.nav').click(function(){
         $('.navigation').css({display: 'block'});
     });
-
-    $(window).resize(function () {
-        if ($(window).width() <= 649) {
-            $('.nav').css({ display: 'block' });
-        } 
-    });
-
+    // listening for scroll to trigger animation at certain point
     $(window).scroll(function () {
         var wScroll = $(this).scrollTop();
 
@@ -30,9 +24,17 @@ $(document).ready(function () {
             });
         }
     });
+    // Carousel 
+
+    // $('.left').prop('disabled', true); doesn't work for some reason
+    // so =>
 
     var count = 0;
+    if(count === 0) {
+        $('.left').css({display: 'none'});
+    } 
     $('.right').click(function () {
+
             count++;
             if(count > 0){
                 $('.left').css({display: 'block'});
@@ -49,7 +51,8 @@ $(document).ready(function () {
     });
 
     $('.left').click(function () {
-        count--;
+
+        count--; 
         if(count < 4){
             $('.right').css({display: 'block'});
         }
@@ -64,7 +67,8 @@ $(document).ready(function () {
             $(this).css({display: 'none'});
         }
     });
-
+    
+    // on certain window size display only two imgs in carousel; disable arrows
     $(window).resize(function () {
         var slidesArr = $('.slide');
         if ($(window).width() <= 800) {
